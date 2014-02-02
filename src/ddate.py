@@ -1,6 +1,6 @@
 """DDate.py -- Discordian Date Object Class.
 
-Usage Examples:
+Usage Examples::
 
     >>> from ddate import DDate
     >>>
