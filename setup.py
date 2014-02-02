@@ -3,7 +3,7 @@ from distutils.core import setup
 
 setup(
     name="ddate",
-    version="0.0.1",
+    version="0.0.2",
     author="Adam Talsma",
     author_email="adam@talsma.ca",
     package_dir={"ddate": "src"},

@@ -1,8 +1,52 @@
 #!/usr/bin/env python
 
 
+"""DDate command line entry point.
+
+Usage:
+
+    $ ddate [year month day]
+"""
+
+
+from __future__ import print_function
+
+import sys
+import datetime
+
 import ddate
 
 
+def main():
+    """Command line entry point."""
+
+    if len(sys.argv) == 2:  # allow for 2014-2-23 style, be lazy/sloppy with it
+        for split_char in ".-/`,:;":  # who knows what the human will use...
+            if split_char in sys.argv[1]:
+                parts = sys.argv[1].split(split_char)
+                del sys.argv[1]
+                sys.argv.extend(parts)
+                break
+
+    date = None
+
+    if len(sys.argv) == 4:
+        try:
+            date = datetime.date(
+                year=int(sys.argv[1]),
+                month=int(sys.argv[2]),
+                day=int(sys.argv[3]),
+            )
+        except ValueError as error:
+            print("error: {}".format(error), file=sys.stderr)
+    elif len(sys.argv) == 1:
+        date = datetime.date.today()
+
+    if date:
+        print(ddate.DDate(date))
+    else:
+        raise SystemExit("usage: ddate [year month day]")
+
+
 if __name__ == "__main__":
-    print(ddate.DDate())
+    main()
