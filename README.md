@@ -3,7 +3,9 @@ DDate
 
 Discordian Date Python Object Class.
 
-Python Usage Examples::
+
+Python Usage Examples
+---------------------
 
     >>> from ddate import DDate
     >>>
@@ -20,11 +22,11 @@ Python Usage Examples::
 
 
 Install
-=======
+-------
 
-  $ git clone https://github.com/a-tal/ddate
-  $ cd ddate
-  $ python setup.py build
-  $ sudo python setup.py install
-  $ ddate
-  Today is Boomtime, the 32nd day of Chaos in the YOLD 3180
+    $ git clone https://github.com/a-tal/ddate
+    $ cd ddate
+    $ python setup.py build
+    $ sudo python setup.py install
+    $ ddate
+    Today is Boomtime, the 32nd day of Chaos in the YOLD 3180
