@@ -30,3 +30,6 @@ Install
     $ sudo python setup.py install
     $ ddate
     Today is Boomtime, the 32nd day of Chaos in the YOLD 3180
+
+
+Also available through pip or easyinstall.
