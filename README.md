@@ -1,5 +1,5 @@
-DDate
-=====
+DDate [![Build Status](https://travis-ci.org/a-tal/ddate.png?branch=master)](https://travis-ci.org/a-tal/ddate) [![Coverage Status](https://coveralls.io/repos/a-tal/ddate/badge.png?branch=master)](https://coveralls.io/r/a-tal/ddate?branch=master)
+=============================
 
 Discordian Date Python Object Class.
 
@@ -32,4 +32,4 @@ Install
     Today is Boomtime, the 32nd day of Chaos in the YOLD 3180
 
 
-Also available through pip or easyinstall
+Also available through pip or easyinstall.
