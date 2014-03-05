@@ -32,4 +32,4 @@ Install
     Today is Boomtime, the 32nd day of Chaos in the YOLD 3180
 
 
-Also available through pip or easyinstall.
+Also available through pip or easyinstall
