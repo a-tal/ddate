@@ -4,12 +4,7 @@
 import datetime
 import unittest
 
-try:
-    import ddate
-except ImportError:
-    import sys
-    sys.path.insert(1, "..")
-    import src as ddate
+import ddate
 
 
 class DDateTests(unittest.TestCase):
