@@ -74,6 +74,18 @@ class DDateTests(unittest.TestCase):
             if not attr.startswith("_") and attr.lower() == attr:
                 self.assertIn(str(getattr(ddate_obj, attr)), repr(ddate_obj))
 
+    def test_date_being_none_is_today(self):
+        today = datetime.date.today().timetuple()
+        ddate_obj = ddate.DDate().date.timetuple()
+        self.assertEqual(today.tm_yday, ddate_obj.tm_yday)
+        self.assertEqual(today.tm_mon, ddate_obj.tm_mon)
+
+    def test_non_date_obj_is_today(self):
+        today = datetime.date.today().timetuple()
+        ddate_obj = ddate.DDate(object()).date.timetuple()
+        self.assertEqual(today.tm_yday, ddate_obj.tm_yday)
+        self.assertEqual(today.tm_mon, ddate_obj.tm_mon)
+
 
 if __name__ == "__main__":
     unittest.main()
