@@ -129,7 +129,7 @@ class DDateTests(unittest.TestCase):
             (327, "th"),
         ]
         for day, postfix in test_data:
-            self.assertEqual(ddate.ddate._day_postfix(day), postfix)
+            self.assertEqual(ddate._day_postfix(day), postfix)
 
 
 if __name__ == "__main__":
