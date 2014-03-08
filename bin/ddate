@@ -14,7 +14,7 @@ from __future__ import print_function
 import sys
 import datetime
 
-from ddate import DDate
+from ddate.base import DDate
 
 
 def main():
