@@ -14,7 +14,7 @@ from __future__ import print_function
 import sys
 import datetime
 
-import ddate
+from ddate import DDate
 
 
 def main():
@@ -38,12 +38,12 @@ def main():
                 day=int(sys.argv[3]),
             )
         except ValueError as error:
-            print("error: {}".format(error), file=sys.stderr)
+            print("error: {0}".format(error), file=sys.stderr)
     elif len(sys.argv) == 1:
         date = datetime.date.today()
 
     if date:
-        print(ddate.DDate(date))
+        print(DDate(date))
     else:
         raise SystemExit("usage: ddate [year month day]")
 

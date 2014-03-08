@@ -1,10 +1,15 @@
 """Unit tests for ddate.py."""
 
-
+import sys
 import datetime
-import unittest
 
-import ddate
+if sys.version_info < (2, 7):
+    import unittest2 as unittest
+
+else:
+    import unittest
+
+from ddate import ddate
 
 
 class DDateTests(unittest.TestCase):

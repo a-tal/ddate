@@ -139,7 +139,7 @@ class DDate(object):
                 self=self,
                 pfix=_day_postfix(self.day_of_season),
                 season=self.SEASONS[self.season],
-                holiday=". Celebrate {}!".format(
+                holiday=". Celebrate {0}!".format(
                     self.holiday) if self.holiday else "",
             )
 
