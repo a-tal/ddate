@@ -137,7 +137,7 @@ class DDate(object):
                 today="Today is " if today else "",
                 day=self.WEEKDAYS[self.day_of_week],
                 self=self,
-                pfix=_day_postfix(self.day_of_season),
+                pfix=day_postfix(self.day_of_season),
                 season=self.SEASONS[self.season],
                 holiday=". Celebrate {0}!".format(
                     self.holiday) if self.holiday else "",
@@ -161,7 +161,7 @@ class DDate(object):
         )
 
 
-def _day_postfix(day):
+def day_postfix(day):
     """Returns day's correct postfix (2nd, 3rd, 61st, etc)."""
 
     if day != 11 and day % 10 == 1:
