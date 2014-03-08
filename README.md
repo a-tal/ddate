@@ -3,6 +3,8 @@ DDate
 
 [![Build Status](https://travis-ci.org/a-tal/ddate.png?branch=master)](https://travis-ci.org/a-tal/ddate)
 [![Coverage Status](https://coveralls.io/repos/a-tal/ddate/badge.png?branch=master)](https://coveralls.io/r/a-tal/ddate?branch=master)
+[![Stories in Backlog](https://badge.waffle.io/a-tal/ddate.png?label=ready&title=Backlog)](https://waffle.io/a-tal/ddate)
+[![Stories In Progress](https://badge.waffle.io/a-tal/ddate.png?label=ready&title=In+Progress)](https://waffle.io/a-tal/ddate)
 [![Version](https://pypip.in/v/ddate/badge.png)](https://pypi.python.org/pypi/ddate/)
 [![Downloads this month](https://pypip.in/d/ddate/badge.png)](https://pypi.python.org/pypi/ddate/)
 
@@ -10,7 +12,7 @@ Discordian Date Python Object Class.
 
 
 Python Usage Examples
----------------------
+=====================
 
     >>> from ddate import DDate
     >>>
@@ -27,7 +29,7 @@ Python Usage Examples
 
 
 Install
--------
+=======
 
     $ git clone https://github.com/a-tal/ddate
     $ cd ddate
