@@ -1,1 +1,1 @@
-from ddate import DDate
+from ddate.ddate import DDate
