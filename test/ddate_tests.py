@@ -1,11 +1,11 @@
 """Unit tests for ddate.py."""
 
+
 import sys
 import datetime
 
 if sys.version_info < (2, 7):
     import unittest2 as unittest
-
 else:
     import unittest
 
