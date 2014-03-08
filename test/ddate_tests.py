@@ -9,8 +9,7 @@ if sys.version_info < (2, 7):
 else:
     import unittest
 
-from ddate import DDate
-from ddate.base import day_postfix
+from ddate.base import DDate, day_postfix
 
 
 class DDateTests(unittest.TestCase):
