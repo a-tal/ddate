@@ -9,7 +9,8 @@ if sys.version_info < (2, 7):
 else:
     import unittest
 
-from ddate import ddate
+from ddate import DDate
+from ddate.base import day_postfix
 
 
 class DDateTests(unittest.TestCase):
@@ -18,7 +19,7 @@ class DDateTests(unittest.TestCase):
     def test_specifc_leap_year_day(self):
         """Any old day in a leap year, basic accuracy test."""
 
-        leap = ddate.DDate(datetime.date(year=2012, month=4, day=20))
+        leap = DDate(datetime.date(year=2012, month=4, day=20))
         self.assertEqual(leap.WEEKDAYS[leap.day_of_week], "Setting Orange")
         self.assertEqual(leap.SEASONS[leap.season], "Discord")
         self.assertEqual(leap.day_of_season, 37)
@@ -26,7 +27,7 @@ class DDateTests(unittest.TestCase):
     def test_specific_non_leap_year_day(self):
         """Any old day in a normal year."""
 
-        non_leap = ddate.DDate(datetime.date(year=2014, month=2, day=1))
+        non_leap = DDate(datetime.date(year=2014, month=2, day=1))
         self.assertEqual(non_leap.WEEKDAYS[non_leap.day_of_week], "Boomtime")
         self.assertEqual(non_leap.SEASONS[non_leap.season], "Chaos")
         self.assertEqual(non_leap.day_of_season, 32)
@@ -34,7 +35,7 @@ class DDateTests(unittest.TestCase):
     def test_discordian_holiday_seasonal(self):
         """Ensure the seasonal holiday is correctly accounted for."""
 
-        holiday = ddate.DDate(datetime.date(year=2014, month=2, day=19))
+        holiday = DDate(datetime.date(year=2014, month=2, day=19))
         self.assertEqual(holiday.holiday, "Chaoflux")
         self.assertTrue(str(holiday).endswith(
             "Setting Orange, the 50th day of Chaos in the YOLD 3180. "
@@ -44,7 +45,7 @@ class DDateTests(unittest.TestCase):
     def test_discordian_holiday_apostle(self):
         """Ensure the apostle holiday is correctly accounted for."""
 
-        holiday = ddate.DDate(datetime.date(year=2014, month=5, day=31))
+        holiday = DDate(datetime.date(year=2014, month=5, day=31))
         self.assertEqual(holiday.holiday, "Syaday")
         self.assertTrue(str(holiday).endswith(
             "Sweetmorn, the 5th day of Confusion in the YOLD 3180. "
@@ -54,7 +55,7 @@ class DDateTests(unittest.TestCase):
     def test_st_tibs_day_eve(self):
         """Test the day before St. Tib's day for sanity."""
 
-        st_tibs_eve = ddate.DDate(datetime.date(year=2012, month=2, day=28))
+        st_tibs_eve = DDate(datetime.date(year=2012, month=2, day=28))
         self.assertEqual(
             str(st_tibs_eve),
             "Prickle-Prickle, the 59th day of Chaos in the YOLD 3178"
@@ -63,7 +64,7 @@ class DDateTests(unittest.TestCase):
     def test_st_tibs_day(self):
         """Test St. Tib's day, also known as leap day."""
 
-        st_tibs_day = ddate.DDate(datetime.date(year=2012, month=2, day=29))
+        st_tibs_day = DDate(datetime.date(year=2012, month=2, day=29))
         self.assertEqual(str(st_tibs_day), "St. Tib's Day, 3178 YOLD")
         self.assertEqual(st_tibs_day.day_of_season, None)
         self.assertEqual(st_tibs_day.day_of_week, None)
@@ -71,7 +72,7 @@ class DDateTests(unittest.TestCase):
     def test_day_after_st_tibs_day(self):
         """Test the day after St. Tib's."""
 
-        post_st_tibs = ddate.DDate(datetime.date(year=2012, month=3, day=1))
+        post_st_tibs = DDate(datetime.date(year=2012, month=3, day=1))
         self.assertEqual(
             str(post_st_tibs),
             "Setting Orange, the 60th day of Chaos in the YOLD 3178"
@@ -80,7 +81,7 @@ class DDateTests(unittest.TestCase):
     def test_new_years_eve(self):
         """Test the last day of the year."""
 
-        nye = ddate.DDate(datetime.datetime(year=2014, month=12, day=31))
+        nye = DDate(datetime.datetime(year=2014, month=12, day=31))
         self.assertEqual(nye.WEEKDAYS[nye.day_of_week], "Setting Orange")
         self.assertEqual(nye.SEASONS[nye.season], "The Aftermath")
         self.assertEqual(nye.day_of_season, 73)
@@ -89,7 +90,7 @@ class DDateTests(unittest.TestCase):
     def test_new_years_day(self):
         """Test the first day of the year."""
 
-        nyd = ddate.DDate(datetime.datetime(year=2015, month=1, day=1))
+        nyd = DDate(datetime.datetime(year=2015, month=1, day=1))
         self.assertEqual(nyd.WEEKDAYS[nyd.day_of_week], "Sweetmorn")
         self.assertEqual(nyd.SEASONS[nyd.season], "Chaos")
         self.assertEqual(nyd.day_of_season, 1)
@@ -98,7 +99,7 @@ class DDateTests(unittest.TestCase):
     def test_data_in_repr(self):
         """Ensure object data is in the repr."""
 
-        ddate_obj = ddate.DDate(datetime.date(year=2012, month=2, day=29))
+        ddate_obj = DDate(datetime.date(year=2012, month=2, day=29))
         self.assertIn(str(hex(id(ddate_obj))), repr(ddate_obj))
         for attr in dir(ddate_obj):
             if not attr.startswith("_") and attr.lower() == attr:
@@ -108,7 +109,7 @@ class DDateTests(unittest.TestCase):
         """If not passed an argument, it should default to today."""
 
         today = datetime.date.today().timetuple()
-        ddate_obj = ddate.DDate().date.timetuple()
+        ddate_obj = DDate().date.timetuple()
         self.assertEqual(today.tm_yday, ddate_obj.tm_yday)
         self.assertEqual(today.tm_mon, ddate_obj.tm_mon)
 
@@ -116,7 +117,7 @@ class DDateTests(unittest.TestCase):
         """If passed an object without a timetuple method, use today."""
 
         today = datetime.date.today().timetuple()
-        ddate_obj = ddate.DDate(object()).date.timetuple()
+        ddate_obj = DDate(object()).date.timetuple()
         self.assertEqual(today.tm_yday, ddate_obj.tm_yday)
         self.assertEqual(today.tm_mon, ddate_obj.tm_mon)
 
@@ -134,7 +135,7 @@ class DDateTests(unittest.TestCase):
             (327, "th"),
         ]
         for day, postfix in test_data:
-            self.assertEqual(ddate._day_postfix(day), postfix)
+            self.assertEqual(day_postfix(day), postfix)
 
 
 if __name__ == "__main__":
