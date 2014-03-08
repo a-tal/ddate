@@ -1,5 +1,10 @@
-DDate [![Build Status](https://travis-ci.org/a-tal/ddate.png?branch=master)](https://travis-ci.org/a-tal/ddate) [![Coverage Status](https://coveralls.io/repos/a-tal/ddate/badge.png?branch=master)](https://coveralls.io/r/a-tal/ddate?branch=master)
-=============================
+DDate
+=====
+
+[![Build Status](https://travis-ci.org/a-tal/ddate.png?branch=master)](https://travis-ci.org/a-tal/ddate)
+[![Coverage Status](https://coveralls.io/repos/a-tal/ddate/badge.png?branch=master)](https://coveralls.io/r/a-tal/ddate?branch=master)
+[![Version](https://pypip.in/v/ddate/badge.png)](https://pypi.python.org/pypi/ddate/)
+[![Downloads this month](https://pypip.in/d/ddate/badge.png)](https://pypi.python.org/pypi/ddate/)
 
 Discordian Date Python Object Class.
 
