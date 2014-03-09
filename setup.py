@@ -14,6 +14,8 @@ setup(
         "Converts and prints time using the Discordian calendar"
     ),
     download_url="https://github.com/a-tal/ddate",
+    tests_require=['nose'],
+    test_suite='nose.collector',
     license="BSD",
     classifiers=[
         "Development Status :: 5 - Production/Stable",
