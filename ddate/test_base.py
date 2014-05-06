@@ -25,10 +25,10 @@ from .base import DDate, day_postfix
 def test_discordian_holiday(dateobj, holidayexp, strexp):
     """Ensure the holidays are correctly accounted for."""
 
-    holiday = DDate(dateobj)
-    assert holiday.holiday == holidayexp
+    hday = DDate(dateobj)
+    assert hday.holiday == holidayexp
     # have to use endswith just in case today is the test day
-    assert str(holiday).endswith("{} Celebrate {}!".format(strexp, holidayexp))
+    assert str(hday).endswith("{0} Celebrate {1}!".format(strexp, holidayexp))
 
 
 @pytest.mark.parametrize("dateobj,weekday,season,dayofseason,year,strexp",

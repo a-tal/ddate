@@ -5,7 +5,9 @@
 
 Usage:
 
-    $ ddate [year month day]
+    $ ddate [day] [month] [year]
+
+Missing arguments are filled in with today's date.
 """
 
 
@@ -17,10 +19,27 @@ import datetime
 from ddate.base import DDate
 
 
+def _get_date(day=None, month=None, year=None):
+    """Returns a datetime object with optional params or today."""
+
+    now = datetime.date.today()
+    if day is None:
+        return now
+
+    try:
+        return datetime.date(
+            day=int(day),
+            month=int(month or now.month),
+            year=int(year or now.year),
+        )
+    except ValueError as error:
+        print("error: {0}".format(error), file=sys.stderr)
+
+
 def main():
     """Command line entry point."""
 
-    if len(sys.argv) == 2:  # allow for 2014-2-23 style, be lazy/sloppy with it
+    if len(sys.argv) == 2:  # allow for 23-2-2014 style, be lazy/sloppy with it
         for split_char in ".-/`,:;":  # who knows what the human will use...
             if split_char in sys.argv[1]:
                 parts = sys.argv[1].split(split_char)
@@ -28,24 +47,12 @@ def main():
                 sys.argv.extend(parts)
                 break
 
-    date = None
-
-    if len(sys.argv) == 4:
-        try:
-            date = datetime.date(
-                year=int(sys.argv[1]),
-                month=int(sys.argv[2]),
-                day=int(sys.argv[3]),
-            )
-        except ValueError as error:
-            print("error: {0}".format(error), file=sys.stderr)
-    elif len(sys.argv) == 1:
-        date = datetime.date.today()
+    date = _get_date(*sys.argv[1:])
 
     if date:
         print(DDate(date))
     else:
-        raise SystemExit("usage: ddate [year month day]")
+        raise SystemExit("usage: ddate [day] [month] [year]")
 
 
 if __name__ == "__main__":
