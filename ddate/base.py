@@ -109,6 +109,7 @@ class DDate(object):
             self.holiday = "St. Tib's Day"
             self.day_of_week = None
             self.day_of_season = None
+            self.season = None
         elif self.day_of_season == 5:
             self.holiday = self.HOLIDAYS["apostle"][self.season]
         elif self.day_of_season == 50:
