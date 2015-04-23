@@ -36,6 +36,9 @@ Command Line Examples
 $ ddate
 Today is Pungenday, the 40th day of Discord in the YOLD 3181
 
+$ ddate --help
+usage: ddate [day] [month] [year]
+
 $ dcal
  Discord 3181 
 Sw Bo Pu Pr Se
