@@ -27,7 +27,11 @@ setup(
     author="Adam Talsma",
     author_email="adam@talsma.ca",
     packages=["ddate"],
-    scripts=["bin/ddate"],
+    install_requires=["dateandtime"],
+    entry_points={"console_scripts": [
+        "ddate = ddate.base:main",
+        "dcal = ddate.dcal:main",
+    ]},
     url="https://github.com/a-tal/ddate",
     description="Discordian date",
     long_description=(
