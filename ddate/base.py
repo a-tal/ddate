@@ -18,7 +18,15 @@ Usage Examples::
 """
 
 
+from __future__ import print_function
+
+import sys
 import datetime
+
+
+is_leap_year = lambda x : (
+    (x % 100 != 0 and x % 4 == 0) or (x % 100 == 0 and x % 400 == 0)
+)
 
 
 class DDate(object):
@@ -76,14 +84,21 @@ class DDate(object):
         "Setting Orange",
     ]
 
-    def __init__(self, date=None, *args, **kwargs):
+    def __init__(self, date=None, year=None, season=None, day_of_season=None,
+                 *args, **kwargs):
         """Discordian date setup and mangling.
 
         Args:
             date: optional date object with a timetuple method, or uses today
+            year: optional integer discordian year to create from (requires season and day_of_season)
+            season: optional integer discodian season to create from (requires year and day_of_season)
+            day_of_season: optional integer discordian day of season to create from (requires year and season)
         """
 
-        if date is None or not hasattr(date, "timetuple"):
+        if year is not None and season is not None and day_of_season is not None:
+            date = datetime.datetime(year=year - 1166, month=1, day=1) + \
+                   datetime.timedelta(days=(season * 73) + day_of_season - 1)
+        elif date is None or not hasattr(date, "timetuple"):
             date = datetime.date.today()
         self.date = date
 
@@ -91,21 +106,17 @@ class DDate(object):
 
         # calculate leap year using tradtional methods to align holidays
         year = time_tuple.tm_year
-        is_leap_year = (
-            (year % 100 != 0 and year % 4 == 0) or
-            (year % 100 == 0 and year % 400 == 0)
-        )
         self.year = year + 1166  # then adjust accordingly and assign
 
         day_of_year = time_tuple.tm_yday - 1  # ordinal
-        if is_leap_year and day_of_year > 59:
+        if is_leap_year(year) and day_of_year > 59:
             day_of_year -= 1  # St. Tib's doesn't count
 
         self.day_of_week = day_of_year % 5
         self.day_of_season = day_of_year % 73 + 1  # cardinal
         self.season = int(day_of_year / 73)
 
-        if is_leap_year and time_tuple.tm_yday == 60:
+        if is_leap_year(year) and time_tuple.tm_yday == 60:
             self.holiday = "St. Tib's Day"
             self.day_of_week = None
             self.day_of_season = None
@@ -175,3 +186,43 @@ def day_postfix(day):
         postfix = "th"
 
     return postfix
+
+
+def _get_date(day=None, month=None, year=None):
+    """Returns a datetime object with optional params or today."""
+
+    now = datetime.date.today()
+    if day is None:
+        return now
+
+    try:
+        return datetime.date(
+            day=int(day),
+            month=int(month or now.month),
+            year=int(year or now.year),
+        )
+    except ValueError as error:
+        print("error: {0}".format(error), file=sys.stderr)
+
+
+def main():
+    """Command line entry point."""
+
+    if len(sys.argv) == 2:  # allow for 23-2-2014 style, be lazy/sloppy with it
+        for split_char in ".-/`,:;":  # who knows what the human will use...
+            if split_char in sys.argv[1]:
+                parts = sys.argv[1].split(split_char)
+                del sys.argv[1]
+                sys.argv.extend(parts)
+                break
+
+    date = _get_date(*sys.argv[1:])
+
+    if date:
+        print(DDate(date))
+    else:
+        raise SystemExit("usage: ddate [day] [month] [year]")
+
+
+if __name__ == "__main__":
+    main()
