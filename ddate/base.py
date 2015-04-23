@@ -208,6 +208,12 @@ def _get_date(day=None, month=None, year=None):
 def main():
     """Command line entry point."""
 
+    def help_exit():
+        raise SystemExit("usage: ddate [day] [month] [year]")
+
+    if "--help" in sys.argv or "-h" in sys.argv:
+        help_exit()
+
     if len(sys.argv) == 2:  # allow for 23-2-2014 style, be lazy/sloppy with it
         for split_char in ".-/`,:;":  # who knows what the human will use...
             if split_char in sys.argv[1]:
@@ -221,7 +227,7 @@ def main():
     if date:
         print(DDate(date))
     else:
-        raise SystemExit("usage: ddate [day] [month] [year]")
+        help_exit()
 
 
 if __name__ == "__main__":
