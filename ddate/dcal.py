@@ -108,6 +108,8 @@ def discordian_calendar(season=None, year=None, dtobj=None):
 
     if year is None:
         year = moved_year or now.year
+    elif year.lower() == "next":
+        year = (moved_year or now.year) + 1
     else:
         for symbol, oper in zip(("+", "-"), (operator.add, operator.sub)):
             if symbol in year:
@@ -143,7 +145,7 @@ def discordian_calendar(season=None, year=None, dtobj=None):
 def main():
     """Command line entry point for dcal."""
 
-    if "--help" in sys.argv or len(sys.argv) > 3:
+    if "--help" in sys.argv or "-h" in sys.argv or len(sys.argv) > 3:
         raise SystemExit(__doc__)
 
     try:
