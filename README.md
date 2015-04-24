@@ -6,10 +6,12 @@ DDate
 [![Stories in Backlog](https://badge.waffle.io/a-tal/ddate.png?label=ready&title=Backlog)](https://waffle.io/a-tal/ddate)
 [![Stories In Progress](https://badge.waffle.io/a-tal/ddate.png?label=ready&title=In+Progress)](https://waffle.io/a-tal/ddate)
 [![Version](https://pypip.in/v/ddate/badge.png)](https://pypi.python.org/pypi/ddate/)
+[![Wheel Status](https://pypip.in/wheel/ddate/badge.svg)](https://pypi.python.org/pypi/ddate/)
 [![Downloads this month](https://pypip.in/d/ddate/badge.png)](https://pypi.python.org/pypi/ddate/)
 
 Discordian Date Python Object Class.
 
+[GitHub page](http://a-tal.github.io/ddate/)
 
 Python Usage Examples
 =====================
@@ -96,3 +98,8 @@ $ git clone https://github.com/a-tal/ddate
 $ cd ddate
 $ python setup.py install
 ```
+
+Live Demo
+=========
+
+![live demo gif](https://github.com/a-tal/ddate/raw/gh-pages/images/ddemo.gif)
