@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>Ddate by a-tal</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>Ddate</h1>
+          <h2>Discordian date</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/a-tal/ddate/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/a-tal/ddate/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/a-tal/ddate" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <h1>
+<a id="ddate" class="anchor" href="#ddate" aria-hidden="true"><span class="octicon octicon-link"></span></a>DDate</h1>
+
+<p><a href="https://travis-ci.org/a-tal/ddate"><img src="https://travis-ci.org/a-tal/ddate.png?branch=master" alt="Build Status"></a>
+<a href="https://coveralls.io/r/a-tal/ddate?branch=master"><img src="https://coveralls.io/repos/a-tal/ddate/badge.png?branch=master" alt="Coverage Status"></a>
+<a href="https://waffle.io/a-tal/ddate"><img src="https://badge.waffle.io/a-tal/ddate.png?label=ready&amp;title=Backlog" alt="Stories in Backlog"></a>
+<a href="https://waffle.io/a-tal/ddate"><img src="https://badge.waffle.io/a-tal/ddate.png?label=ready&amp;title=In+Progress" alt="Stories In Progress"></a>
+<a href="https://pypi.python.org/pypi/ddate/"><img src="https://pypip.in/v/ddate/badge.png" alt="Version"></a>
+<a href="https://pypi.python.org/pypi/ddate/"><img src="https://pypip.in/d/ddate/badge.png" alt="Downloads this month"></a></p>
+
+<p>Discordian Date Python Object Class.</p>
+
+<h1>
+<a id="python-usage-examples" class="anchor" href="#python-usage-examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Python Usage Examples</h1>
+
+<div class="highlight highlight-python"><pre><span class="pl-k">&gt;&gt;&gt;</span> <span class="pl-k">from</span> ddate <span class="pl-k">import</span> DDate
+<span class="pl-k">&gt;&gt;&gt;</span>
+<span class="pl-k">&gt;&gt;&gt;</span> DDate()
+<span class="pl-k">&lt;</span>src.ddate.DDate <span class="pl-c1">object</span> at <span class="pl-c1">0x</span>7f3a6b88eb50<span class="pl-k">&gt;</span>
+<span class="pl-k">&lt;</span>DDate date: <span class="pl-c1">2014</span><span class="pl-k">-</span><span class="pl-c1">02</span><span class="pl-k">-</span><span class="pl-c1">01</span>, day_of_season: <span class="pl-c1">32</span>, day_of_week: <span class="pl-c1">1</span>, holiday: <span class="pl-c1">None</span>, season: <span class="pl-c1">0</span>, year: <span class="pl-c1">3180</span><span class="pl-k">&gt;</span>
+<span class="pl-k">&gt;&gt;&gt;</span>
+<span class="pl-k">&gt;&gt;&gt;</span> <span class="pl-k">print</span>(DDate())
+Today <span class="pl-k">is</span> Boomtime, the <span class="pl-c1">32</span>nd day of Chaos <span class="pl-k">in</span> the YOLD <span class="pl-c1">3180</span>
+<span class="pl-k">&gt;&gt;&gt;</span>
+<span class="pl-k">&gt;&gt;&gt;</span> <span class="pl-k">import</span> datetime
+<span class="pl-k">&gt;&gt;&gt;</span> <span class="pl-k">print</span>(DDate(datetime.date(<span class="pl-smi">year</span><span class="pl-k">=</span><span class="pl-c1">2014</span>, <span class="pl-smi">month</span><span class="pl-k">=</span><span class="pl-c1">4</span>, <span class="pl-smi">day</span><span class="pl-k">=</span><span class="pl-c1">20</span>)))
+Setting Orange, the <span class="pl-c1">37</span>th day of Discord <span class="pl-k">in</span> the YOLD <span class="pl-c1">3180</span></pre></div>
+
+<h1>
+<a id="command-line-examples" class="anchor" href="#command-line-examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Command Line Examples</h1>
+
+<div class="highlight highlight-bash"><pre>$ ddate
+Today is Pungenday, the 40th day of Discord <span class="pl-k">in</span> the YOLD 3181
+
+$ ddate --help
+usage: ddate [day] [month] [year]
+
+$ dcal
+ Discord 3181 
+Sw Bo Pu Pr Se
+71 72 73  1  2
+ 3  4  5  6  7
+ 8  9 10 11 12
+13 14 15 16 17
+18 19 20 21 22
+23 24 25 26 27
+28 29 30 31 32
+33 34 35 36 37
+38 39 40 41 42
+43 44 45 46 47
+48 49 50 51 52
+53 54 55 56 57
+58 59 60 61 62
+63 64 65 66 67
+68 69 70 71 72
+73  1  2  3  4
+
+$ dcal --help
+Similar to the <span class="pl-s"><span class="pl-pds">`</span>cal<span class="pl-pds">`</span></span> <span class="pl-c1">command</span>, but <span class="pl-k">for</span> <span class="pl-smi">the</span> Discordian calendar.
+
+Usage:
+    dcal [season] [year]
+
+Season can be an integer between 1 and 5, steps with + or -, <span class="pl-s"><span class="pl-pds">'</span>next<span class="pl-pds">'</span></span>, or any of
+the Discordian season names. The year is <span class="pl-k">in</span> Discordian (+= 1166 to Gregorian).
+
+Examples:
+    dcal +2          <span class="pl-c"># prints two seasons into the future</span>
+    dcal aft         <span class="pl-c"># prints the last season (The Aftermath) of this year</span>
+    dcal discord -2  <span class="pl-c"># prints the Discord season from two years ago</span>
+    dcal +6 +1       <span class="pl-c"># prints the calendar 6 seasons and one year in the future</span>
+
+Discordian season names:
+    Chaos
+    Discord
+    Confusion
+    Bureaucracy
+    The Aftermath</pre></div>
+
+<h1>
+<a id="install" class="anchor" href="#install" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install</h1>
+
+<p>Simple way:</p>
+
+<div class="highlight highlight-bash"><pre>$ pip install -U ddate</pre></div>
+
+<p>Or from source:</p>
+
+<div class="highlight highlight-bash"><pre>$ git clone https://github.com/a-tal/ddate
+$ <span class="pl-c1">cd</span> ddate
+$ python setup.py install</pre></div>
+        </section>
+
+        <footer>
+          Ddate is maintained by <a href="https://github.com/a-tal">a-tal</a><br>
+          This page was generated by <a href="https://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
+      </div>
+    </div>
+  </body>
+</html>
