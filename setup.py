@@ -32,7 +32,7 @@ setup(
         "ddate = ddate.base:main",
         "dcal = ddate.dcal:main",
     ]},
-    url="https://github.com/a-tal/ddate",
+    url="http://a-tal.github.io/ddate",
     description="Discordian date",
     long_description=(
         "Converts and prints time using the Discordian calendar"
