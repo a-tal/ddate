@@ -96,3 +96,8 @@ $ git clone https://github.com/a-tal/ddate
 $ cd ddate
 $ python setup.py install
 ```
+
+Live Demo
+=========
+
+![live demo gif](https://github.com/a-tal/ddate/raw/gh-pages/images/ddemo.gif)
