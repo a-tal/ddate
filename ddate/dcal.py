@@ -71,7 +71,8 @@ def discordian_calendar(season=None, year=None, dtobj=None):
     if season is None:
         season = now.season
     elif season.lower() == "next":
-        season, moved_year = _season_overflow(now.season or 0 + 1, moved_year, now)
+        season, moved_year = _season_overflow(now.season or 0 + 1, moved_year,
+                                              now)
     else:
         # allow for +1, -2, for seasons...
         for symbol, oper in zip(("+", "-"), (operator.add, operator.sub)):

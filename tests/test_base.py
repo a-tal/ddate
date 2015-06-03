@@ -4,10 +4,11 @@
 import pytest
 import datetime
 
-from .base import DDate, day_postfix
+from ddate.base import DDate, day_postfix
 
 
-@pytest.mark.parametrize("dateobj,holidayexp,strexp",
+@pytest.mark.parametrize(
+    "dateobj,holidayexp,strexp",
     [
         (
             datetime.date(year=2014, month=2, day=19),
@@ -15,7 +16,7 @@ from .base import DDate, day_postfix
             "Setting Orange, the 50th day of Chaos in the YOLD 3180.",
         ),
         (
-            datetime.date(year=2014, month=5, day=31), 
+            datetime.date(year=2014, month=5, day=31),
             "Syaday",
             "Sweetmorn, the 5th day of Confusion in the YOLD 3180.",
         ),
@@ -31,7 +32,8 @@ def test_discordian_holiday(dateobj, holidayexp, strexp):
     assert str(hday).endswith("{0} Celebrate {1}!".format(strexp, holidayexp))
 
 
-@pytest.mark.parametrize("dateobj,weekday,season,dayofseason,year,strexp",
+@pytest.mark.parametrize(
+    "dateobj,weekday,season,dayofseason,year,strexp",
     [
         (
             datetime.datetime(year=2014, month=12, day=31),
@@ -40,7 +42,7 @@ def test_discordian_holiday(dateobj, holidayexp, strexp):
         ),
         (
             datetime.datetime(year=2015, month=1, day=1),
-            "Sweetmorn", "Chaos", 1, 3181, 
+            "Sweetmorn", "Chaos", 1, 3181,
             "Sweetmorn, the 1st day of Chaos in the YOLD 3181"
         ),
         (
@@ -78,13 +80,13 @@ def test_days_of_the_year(dateobj, weekday, season, dayofseason, year, strexp):
     ddate_obj = DDate(dateobj)
 
     if weekday is None:
-        # checks for st tibs edge cases, avoids TypeError's on [None] 
+        # checks for st tibs edge cases, avoids TypeError's on [None]
         assert ddate_obj.day_of_week == weekday
         assert ddate_obj.season == season
     else:
         assert ddate_obj.WEEKDAYS[ddate_obj.day_of_week] == weekday
         assert ddate_obj.SEASONS[ddate_obj.season] == season
-        
+
     assert ddate_obj.day_of_season == dayofseason
     assert ddate_obj.year == year
     assert str(ddate_obj) == strexp

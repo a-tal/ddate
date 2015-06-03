@@ -24,7 +24,7 @@ import sys
 import datetime
 
 
-is_leap_year = lambda x : (
+is_leap_year = lambda x: (
     (x % 100 != 0 and x % 4 == 0) or (x % 100 == 0 and x % 400 == 0)
 )
 
@@ -88,16 +88,19 @@ class DDate(object):
                  *args, **kwargs):
         """Discordian date setup and mangling.
 
+        Note: year, season and day_of_season are all required if any are used
+
         Args:
             date: optional date object with a timetuple method, or uses today
-            year: optional integer discordian year to create from (requires season and day_of_season)
-            season: optional integer discodian season to create from (requires year and day_of_season)
-            day_of_season: optional integer discordian day of season to create from (requires year and season)
+            year: optional integer discordian year to create from
+            season: optional integer discodian season to create from
+            day_of_season: optional int discordian day of season to create from
         """
 
-        if year is not None and season is not None and day_of_season is not None:
-            date = datetime.datetime(year=year - 1166, month=1, day=1) + \
-                   datetime.timedelta(days=(season * 73) + day_of_season - 1)
+        if year is not None and season is not None and \
+           day_of_season is not None:
+            date = (datetime.datetime(year=year - 1166, month=1, day=1) +
+                    datetime.timedelta(days=(season * 73) + day_of_season - 1))
         elif date is None or not hasattr(date, "timetuple"):
             date = datetime.date.today()
         self.date = date
