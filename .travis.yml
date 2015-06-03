@@ -26,6 +26,8 @@ before_deploy:
 deploy:
   - provider: pypi
     user: atal
+    skip_cleanup: true
+    distributions: "sdist bdist_wheel"
     password:
       secure: TMT7jKYcIocBwJuLHCKZ2Vph7nVsylYPHVIULogKO6AyUepNjljgeUFBZLsWR6diEdEF3ILHCplInoPAa9ZuZazWlADyT+I0BmazVWrAdeVPQa+CDcNeHjxOmJczeSxTO3HAIUvwOsgj0jE8Ecf30xS/dAmzvDmhj71tvU/JrhU=
     on:
