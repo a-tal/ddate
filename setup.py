@@ -1,3 +1,4 @@
+import io
 from setuptools import setup
 from setuptools.command.test import test as TestCommand
 
@@ -21,9 +22,13 @@ class PyTest(TestCommand):
         raise SystemExit(errno)
 
 
+with io.open("README.rst", encoding="utf-8") as openreadme:
+    long_description = openreadme.read()
+
+
 setup(
     name="ddate",
-    version="0.0.9",
+    version="0.1.0",
     author="Adam Talsma",
     author_email="adam@talsma.ca",
     packages=["ddate"],
@@ -33,10 +38,8 @@ setup(
         "dcal = ddate.dcal:main",
     ]},
     url="http://a-tal.github.io/ddate",
-    description="Discordian date",
-    long_description=(
-        "Converts and prints time using the Discordian calendar"
-    ),
+    description="Discordian date and calendar",
+    long_description=long_description,
     download_url="https://github.com/a-tal/ddate",
     cmdclass={"test": PyTest},
     tests_require=["pytest", "pytest-cov"],
