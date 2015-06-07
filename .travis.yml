@@ -29,7 +29,7 @@ deploy:
     skip_cleanup: true
     distributions: "sdist bdist_wheel"
     password:
-      secure: TMT7jKYcIocBwJuLHCKZ2Vph7nVsylYPHVIULogKO6AyUepNjljgeUFBZLsWR6diEdEF3ILHCplInoPAa9ZuZazWlADyT+I0BmazVWrAdeVPQa+CDcNeHjxOmJczeSxTO3HAIUvwOsgj0jE8Ecf30xS/dAmzvDmhj71tvU/JrhU=
+      secure: "ogHYO19yjqXJLhxxqsxfGSxiKyHKwi0L6Bi6nx3pAB/e6Ybf3EIHYycyldOKDBSRR/dGRIVdNQy8eYQPApetHj2nNnarS0LmpuUyYp19G4bWTgENu9Rrgr0CmvpDwqhCFTp7B9oFupK2+qQbVCV6fxFbfOYcHl1a2RxNsFUb5Kg="
     on:
       tags: true
       repo: a-tal/ddate
