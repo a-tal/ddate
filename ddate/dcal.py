@@ -1,5 +1,9 @@
 import os
 import sys
+import datetime
+import operator
+from dateandtime.multicalendar import MultiCalendar
+
 from ddate.base import DDate, is_leap_year
 
 
@@ -22,11 +26,6 @@ Discordian season names:
     os.path.basename(sys.argv[0]),
     "\n    ".join(DDate.SEASONS),
 )
-
-
-import datetime
-import operator
-from dateandtime.multicalendar import MultiCalendar
 
 
 # adjusted for Discord

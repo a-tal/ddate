@@ -4,9 +4,8 @@ python:
 env:
   - TOXENV=py26
   - TOXENV=py27
-  - TOXENV=py32
-  - TOXENV=py33
   - TOXENV=py34
+  - TOXENV=py35
   - TOXENV=pypy
   - TOXENV=pep8
 before_install:
@@ -33,7 +32,7 @@ deploy:
     on:
       tags: true
       repo: a-tal/ddate
-      condition: $TOXENV = py34
+      condition: $TOXENV = py35
   - provider: releases
     api_key:
       secure: "fa8RqW0GdsddFzQF063Eud6Qy5ZZhild4NmocdN6qHkehjJL0zq+Y0nyCUlNASUq4aSYsZaSqfeZxosZ/7Qj1xBinxcqeeY65reYN5kNAtgy/+AdN3HyXkNGNjMzPKqzvHygisdCJr8XTIlrne/aLJvILiSl+ZXIjPQu6KjYNDw="
@@ -42,4 +41,4 @@ deploy:
     skip_cleanup: true
     on:
       tags: true
-      condition: $TOXENV = py34
+      condition: $TOXENV = py35

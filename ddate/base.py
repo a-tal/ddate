@@ -24,9 +24,11 @@ import sys
 import datetime
 
 
-is_leap_year = lambda x: (
-    (x % 100 != 0 and x % 4 == 0) or (x % 100 == 0 and x % 400 == 0)
-)
+def is_leap_year(year):
+    """Returns True if the integer year is a Gregorian leap year."""
+
+    return ((year % 100 != 0 and year % 4 == 0) or
+            (year % 100 == 0 and year % 400 == 0))
 
 
 class DDate(object):
