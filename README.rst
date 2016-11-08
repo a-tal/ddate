@@ -13,7 +13,7 @@ Python Usage Examples
 
 .. code:: python
 
-    >>> from ddate import DDate
+    >>> from ddate.base import DDate
     >>>
     >>> DDate()
     <src.ddate.DDate object at 0x7f3a6b88eb50>
