@@ -29,7 +29,7 @@ with io.open("README.rst", encoding="utf-8") as openreadme:
 
 setup(
     name="ddate",
-    version="0.1.0",
+    version="0.1.1",
     author="Adam Talsma",
     author_email="adam@talsma.ca",
     packages=["ddate"],
