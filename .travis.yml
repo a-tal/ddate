@@ -28,14 +28,14 @@ deploy:
     skip_cleanup: true
     distributions: "sdist bdist_wheel"
     password:
-      secure: "ogHYO19yjqXJLhxxqsxfGSxiKyHKwi0L6Bi6nx3pAB/e6Ybf3EIHYycyldOKDBSRR/dGRIVdNQy8eYQPApetHj2nNnarS0LmpuUyYp19G4bWTgENu9Rrgr0CmvpDwqhCFTp7B9oFupK2+qQbVCV6fxFbfOYcHl1a2RxNsFUb5Kg="
+      secure: "cVQwCXY6QwnqduNMD363+mHA37mxJKagoEh2RVSj7hQJsQWnYH5bAZrwknrx71Ux+n+22aD12lCBZEnj2qDvG68zlV4L264nfXEJqTrMP2BQrKqepubkUcuCFogxWSY4MBMvQHyhyL3u3TEsawKEKlkd5dNhxN2A/AJf2Gl/RmY="
     on:
       tags: true
       repo: a-tal/ddate
       condition: $TOXENV = py35
   - provider: releases
     api_key:
-      secure: "fa8RqW0GdsddFzQF063Eud6Qy5ZZhild4NmocdN6qHkehjJL0zq+Y0nyCUlNASUq4aSYsZaSqfeZxosZ/7Qj1xBinxcqeeY65reYN5kNAtgy/+AdN3HyXkNGNjMzPKqzvHygisdCJr8XTIlrne/aLJvILiSl+ZXIjPQu6KjYNDw="
+      secure: "A0yCB43R5JZxox/OLJePBNAjWgBIdjgXFMzBKiySaRdbVAAVix1JOd+2fHN6l+sKO+Yi3XPgwOmvnkz8QuMB4O2go+UGh2w+bM9WB+Lr3JA/z2eJjdyXMXqB15+jdVOLINstlHNEikJpnmCq9zvXAX+75pCnFj24EilmA8UbZAo="
     file: "/home/travis/build/a-tal/ddate/dist/ddate*.whl"
     file_glob: true
     skip_cleanup: true
