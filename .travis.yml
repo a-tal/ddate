@@ -1,12 +1,11 @@
 language: python
 python:
-  - '3.4'
+  - '3.6'
 env:
   - TOXENV=py26
   - TOXENV=py27
   - TOXENV=py34
-  - TOXENV=py35
-  - TOXENV=pypy
+  - TOXENV=py36
   - TOXENV=pep8
 before_install:
   - pip install -U coveralls pip pytest pytest-cov setuptools wheel tox
@@ -28,11 +27,11 @@ deploy:
     skip_cleanup: true
     distributions: "sdist bdist_wheel"
     password:
-      secure: "cVQwCXY6QwnqduNMD363+mHA37mxJKagoEh2RVSj7hQJsQWnYH5bAZrwknrx71Ux+n+22aD12lCBZEnj2qDvG68zlV4L264nfXEJqTrMP2BQrKqepubkUcuCFogxWSY4MBMvQHyhyL3u3TEsawKEKlkd5dNhxN2A/AJf2Gl/RmY="
+      secure: "TZgH3BkDt3p5ZSk7AciN/VQ/Vcj1NHK+HseQbW7R7AiHV+9cH3JiRazdldu6B6XiJtf4lfr6792h/aqbzchFaBtLdU21BhL42RGu4rqC5z5Jo7u8ljcEyj8A6RKDTHptrafZkLKSHi0J2IswIVE7Csq6nFkrf0cluEStU40vGus="
     on:
       tags: true
       repo: a-tal/ddate
-      condition: $TOXENV = py35
+      condition: $TOXENV = py36
   - provider: releases
     api_key:
       secure: "A0yCB43R5JZxox/OLJePBNAjWgBIdjgXFMzBKiySaRdbVAAVix1JOd+2fHN6l+sKO+Yi3XPgwOmvnkz8QuMB4O2go+UGh2w+bM9WB+Lr3JA/z2eJjdyXMXqB15+jdVOLINstlHNEikJpnmCq9zvXAX+75pCnFj24EilmA8UbZAo="
@@ -41,4 +40,4 @@ deploy:
     skip_cleanup: true
     on:
       tags: true
-      condition: $TOXENV = py35
+      condition: $TOXENV = py36
