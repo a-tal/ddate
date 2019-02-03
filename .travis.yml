@@ -34,7 +34,7 @@ deploy:
       condition: $TOXENV = py36
   - provider: releases
     api_key:
-      secure: "A0yCB43R5JZxox/OLJePBNAjWgBIdjgXFMzBKiySaRdbVAAVix1JOd+2fHN6l+sKO+Yi3XPgwOmvnkz8QuMB4O2go+UGh2w+bM9WB+Lr3JA/z2eJjdyXMXqB15+jdVOLINstlHNEikJpnmCq9zvXAX+75pCnFj24EilmA8UbZAo="
+      secure: "FiDh9oy0fwd3Mvo/Uo8OiAUA8K198e2s5BspB5wkDqaxqoJMCFAl/MytbeKjyNdeEfio3PeHwVGLR5295FjD8TS/TBbRGtb6cUg7iNAriWvfQlqXE1lEATEQW+IbCzR+Mz7BQJuQJ9cmbGV99PpU3gP0UeqNaSUAkAvt1x6sng0="
     file: "/home/travis/build/a-tal/ddate/dist/ddate*.whl"
     file_glob: true
     skip_cleanup: true
